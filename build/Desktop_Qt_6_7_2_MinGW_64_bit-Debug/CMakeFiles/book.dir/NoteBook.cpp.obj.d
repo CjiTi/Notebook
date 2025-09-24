@@ -446,4 +446,6 @@ CMakeFiles/book.dir/NoteBook.cpp.obj: \
  C:/Users/22865/VScode/QT/6.7.2/mingw_64/include/QtCore/qdatetime.h \
  C:/Users/22865/VScode/QT/6.7.2/mingw_64/include/QtCore/qcalendar.h \
  C:/Users/22865/VScode/QT/6.7.2/mingw_64/include/QtCore/qtimezone.h \
- C:/Users/22865/VScode/QT/6.7.2/mingw_64/include/QtWidgets/qdialog.h
+ C:/Users/22865/VScode/QT/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
+ C:/Users/22865/VScode/QT/6.7.2/mingw_64/include/QtGui/QShortcut \
+ C:/Users/22865/VScode/QT/6.7.2/mingw_64/include/QtGui/qshortcut.h

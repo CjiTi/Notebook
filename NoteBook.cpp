@@ -3,14 +3,23 @@
 
 #include <QFile>
 #include <QFileDialog>
+#include <QShortcut>
 
 book::book(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::book)
 {
     ui->setupUi(this);
-}
+    QShortcut *shortcutopen = new QShortcut(QKeySequence(tr("Ctrl+O", "File|Open")),this);
+    connect(shortcutopen,&QShortcut::activated,this,[=](){
+        on_pushButton_2_clicked();
+    });
 
+    QShortcut *shortcutsave = new QShortcut(QKeySequence(tr("Ctrl+S", "save")),this);
+    connect(shortcutsave,&QShortcut::activated,this,[=](){
+        on_pushButton_clicked();
+    });
+}
 book::~book()
 {
     delete ui;
@@ -21,7 +30,7 @@ void book::on_pushButton_2_clicked()
 {
     QFile file;
     QString filename = QFileDialog::getOpenFileName(this,tr("Open TEXT"), "C:\\Users\\22865\\VScode\\Vscode\\qt\\book",
-                                            tr("Text Files (*.txt)"));
+                                                    tr("Text Files (*.txt)"));
     ui->textEdit->clear();
     this->setWindowTitle(filename+"记事本");
     file.setFileName(filename);
@@ -35,7 +44,7 @@ void book::on_pushButton_2_clicked()
     in.setEncoding(QStringConverter::Utf8);
     while(!in.atEnd()){
         QString context=in.readLine();
-         ui->textEdit->append(context);
+        ui->textEdit->append(context);
         qDebug()<<context;
     }
     file.close();
@@ -77,5 +86,6 @@ void book::on_textEdit_cursorPositionChanged()
     QString column=QString::number(cursor.columnNumber()+1);
     QString labelmes="第"+block+"行,第"+column+"列";
     ui->label_2->setText(labelmes);
+
 }
 
